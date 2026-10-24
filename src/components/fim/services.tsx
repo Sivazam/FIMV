@@ -10,6 +10,43 @@ import { cn } from "@/lib/utils";
 const EASE = [0.76, 0, 0.24, 1] as const;
 const TOTAL_SERVICES = SERVICE_CATEGORIES.reduce((n, c) => n + c.services.length, 0);
 
+function ViewToggle({
+  view,
+  onViewChange,
+}: {
+  view: "grid" | "index";
+  onViewChange: (v: "grid" | "index") => void;
+}) {
+  return (
+    <div className="flex items-center rounded-full border border-navy-900/15 overflow-hidden font-data text-[9px] tracking-[0.16em] uppercase shrink-0">
+      <button
+        type="button"
+        onClick={() => onViewChange("grid")}
+        aria-label="Grid view"
+        aria-pressed={view === "grid"}
+        className={cn(
+          "px-3 py-1.5 flex items-center gap-1.5 transition-colors",
+          view === "grid" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
+        )}
+      >
+        <LayoutGrid className="w-3 h-3" /> Grid
+      </button>
+      <button
+        type="button"
+        onClick={() => onViewChange("index")}
+        aria-label="Full index view"
+        aria-pressed={view === "index"}
+        className={cn(
+          "px-3 py-1.5 flex items-center gap-1.5 transition-colors border-l border-navy-900/15",
+          view === "index" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
+        )}
+      >
+        <List className="w-3 h-3" /> Full Index
+      </button>
+    </div>
+  );
+}
+
 export function Services() {
   const [active, setActive] = useState(0);
   const [view, setView] = useState<"grid" | "index">("grid");
@@ -128,30 +165,7 @@ export function Services() {
                 <span className="font-data text-[10px] md:text-[11px] tracking-[0.2em] text-navy-900/50 uppercase shrink-0">
                   {category.services.length} services
                 </span>
-                <div className="flex items-center rounded-full border border-navy-900/15 overflow-hidden font-data text-[9px] tracking-[0.16em] uppercase shrink-0">
-                  <button
-                    onClick={() => setView("grid")}
-                    aria-label="Grid view"
-                    aria-pressed={view === "grid"}
-                    className={cn(
-                      "px-3 py-1.5 flex items-center gap-1.5 transition-colors",
-                      view === "grid" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
-                    )}
-                  >
-                    <LayoutGrid className="w-3 h-3" /> Grid
-                  </button>
-                  <button
-                    onClick={() => setView("index")}
-                    aria-label="Full index view"
-                    aria-pressed={view === "index"}
-                    className={cn(
-                      "px-3 py-1.5 flex items-center gap-1.5 transition-colors border-l border-navy-900/15",
-                      view === "index" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
-                    )}
-                  >
-                    <List className="w-3 h-3" /> Full Index
-                  </button>
-                </div>
+                <ViewToggle view={view} onViewChange={setView} />
               </div>
 
               {/* What you gain strip */}
@@ -236,30 +250,7 @@ export function Services() {
                 <span className="font-data text-[10px] md:text-[11px] tracking-[0.2em] text-navy-900/50 uppercase shrink-0">
                   {TOTAL_SERVICES} services
                 </span>
-                <div className="flex items-center rounded-full border border-navy-900/15 overflow-hidden font-data text-[9px] tracking-[0.16em] uppercase shrink-0">
-                  <button
-                    onClick={() => setView("grid")}
-                    aria-label="Grid view"
-                    aria-pressed={view === "grid"}
-                    className={cn(
-                      "px-3 py-1.5 flex items-center gap-1.5 transition-colors",
-                      view === "grid" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
-                    )}
-                  >
-                    <LayoutGrid className="w-3 h-3" /> Grid
-                  </button>
-                  <button
-                    onClick={() => setView("index")}
-                    aria-label="Full index view"
-                    aria-pressed={view === "index"}
-                    className={cn(
-                      "px-3 py-1.5 flex items-center gap-1.5 transition-colors border-l border-navy-900/15",
-                      view === "index" ? "bg-navy-950 text-cream" : "text-navy-900/60 hover:bg-navy-900/5"
-                    )}
-                  >
-                    <List className="w-3 h-3" /> Full Index
-                  </button>
-                </div>
+                <ViewToggle view={view} onViewChange={setView} />
               </div>
 
               <div className="space-y-8">

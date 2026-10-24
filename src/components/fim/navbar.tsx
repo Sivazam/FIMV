@@ -68,21 +68,6 @@ export function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href={CONTACT.whatsapp.primary}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Chat with us on WhatsApp"
-              title="Chat on WhatsApp"
-              className="group relative w-11 h-11 grid place-items-center rounded-full border border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-navy-950 hover:border-[#25D366] transition-all duration-300"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-0 rounded-full animate-pulse-ring opacity-0 group-hover:opacity-100"
-                style={{ boxShadow: "0 0 0 0 rgba(37,211,102,0.5)" }}
-              />
-              <WhatsAppIcon className="w-5 h-5" />
-            </a>
-            <a
               href="#contact"
               className="hidden md:inline-flex items-center gap-2 bg-kesari text-white font-data text-[11px] tracking-[0.15em] uppercase px-5 py-3 rounded-full hover:bg-kesari-deep transition-colors duration-300 group"
             >

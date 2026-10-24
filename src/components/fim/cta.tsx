@@ -106,7 +106,7 @@ export function Cta() {
          * creating a tall dead zone under the headline. On mobile the portrait
          * comes first (order-first) so the section ends tight on the CTAs.
          */}
-        <div className="mt-8 md:mt-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+        <div className="mt-8 lg:mt-6 grid lg:grid-cols-12 gap-8 lg:gap-12 items-end lg:items-start">
           <div className="lg:col-span-7 flex flex-col gap-6">
             <Reveal delay={0.1}>
               <p className="text-cream/70 text-base md:text-lg leading-relaxed max-w-xl">
