@@ -2,7 +2,7 @@
 
 import { Reveal } from "./motion";
 import { CONTACT, NAV_LINKS } from "@/lib/fim-data";
-import { ArrowUp, Download } from "lucide-react";
+import { ArrowUp, Download, Heart } from "lucide-react";
 import { WhatsAppIcon } from "./whatsapp";
 
 export function Footer() {
@@ -141,16 +141,31 @@ export function Footer() {
           <p className="font-data text-[10px] tracking-[0.18em] uppercase text-cream/40">
             © {new Date().getFullYear()} Fact In Media — Let&apos;s Win Together
           </p>
-          <p className="font-data text-[10px] tracking-[0.18em] uppercase text-cream/40">
-            Your Election, Our Mission
+          <p className="font-data text-[11px] tracking-[0.15em] uppercase text-cream/60 flex items-center gap-1.5">
+            Built with{" "}
+            <Heart className="w-3.5 h-3.5 text-kesari fill-kesari inline-block animate-pulse" aria-hidden />{" "}
+            by{" "}
+            <a
+              href={`https://wa.me/919014882779?text=${encodeURIComponent("Hi, I have a software requirement")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cream hover:text-kesari underline underline-offset-4 decoration-kesari/50 hover:decoration-kesari transition-colors font-medium tracking-[0.18em]"
+            >
+              Shiv
+            </a>
           </p>
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            aria-label="Back to top"
-            className="w-10 h-10 rounded-full border border-cream/15 grid place-items-center text-cream/60 hover:text-kesari hover:border-kesari transition-colors"
-          >
-            <ArrowUp className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-4">
+            <p className="font-data text-[10px] tracking-[0.18em] uppercase text-cream/40 hidden md:block">
+              Your Election, Our Mission
+            </p>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              aria-label="Back to top"
+              className="w-10 h-10 rounded-full border border-cream/15 grid place-items-center text-cream/60 hover:text-kesari hover:border-kesari transition-colors"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>
